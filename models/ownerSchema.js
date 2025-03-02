@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 
 
 const ownerSchema = mongoose.Schema({
-    Fullname: {
+  Oname: {
         type: String,
-        minlenth:2,
+        minlength: 2,
         trim:true
     },
     email:String,
@@ -20,5 +20,5 @@ const ownerSchema = mongoose.Schema({
    gstin:String,
 
 })
-
-module.exports= mongoose.model("owner","ownerSchema")
+const Owner = mongoose.model("Owner", ownerSchema);
+module.exports = Owner;

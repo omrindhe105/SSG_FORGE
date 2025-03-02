@@ -1,5 +1,3 @@
-
-
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const db = require("./config/mongoose-connection")
@@ -8,6 +6,7 @@ const app = express()
 const ownersRouter= require("./routes/ownersRouter");
 const productsRouter= require("./routes/productsRouter");
 const usersRouter= require("./routes/usersRouter");
+const index = require("../SSG_Forge/routes/index")
 
 const port = 4000
 
@@ -22,13 +21,16 @@ app.set("view engine","ejs");
 app.use("/owner",ownersRouter);
 app.use("/user",usersRouter);
 app.use("/products",productsRouter);
-
+app.use("/",index);
 
 //require routes
 
-app.get('/home', (req, res) => {
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   res.render("index")
+// })
+
+
+console.log("Current NODE_ENV:", process.env.NODE_ENV);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
