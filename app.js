@@ -6,7 +6,8 @@ const app = express()
 const ownersRouter= require("./routes/ownersRouter");
 const productsRouter= require("./routes/productsRouter");
 const usersRouter= require("./routes/usersRouter");
-const index = require("../SSG_Forge/routes/index")
+const index = require("../SSG_Forge/routes/index");
+require("dotenv").config();
 
 const port = 4000
 
