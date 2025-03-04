@@ -23,12 +23,6 @@ app.use("/owner",ownersRouter);
 app.use("/user",usersRouter);
 app.use("/products",productsRouter);
 app.use("/",index);
-// endol
-//require routes
-
-// app.get('/', (req, res) => {
-//   res.render("index")
-// })
 
 
 console.log("Current NODE_ENV:", process.env.NODE_ENV);
