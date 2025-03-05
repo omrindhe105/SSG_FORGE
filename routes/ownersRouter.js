@@ -1,11 +1,24 @@
 const express = require("express")
 const router = express.Router();
 const ownerModel = require("../models/ownerSchema");
+const upload = require("../config/multer-config")
 
 
-router.get("/", function (req, res) {
-  res.send("hey i am  ownersRouter ")
+
+
+router.get("/admin", function (req, res) {
+  res.render("admin")
 })
+
+router.get("/add-product", function (req, res) {
+  res.render("createProduct")
+})
+
+
+
+// router.post("/submit-product", upload.single("image"), function(req,res){
+//   res.send(req.file)
+// })
 
 
 if (process.env.NODE_ENV == "development") { // this route will works only when env will be developement

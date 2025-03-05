@@ -3,6 +3,8 @@ const express = require('express')
 const db = require("./config/mongoose-connection")
 const path = require("path")
 const app = express()
+const expressSession = require("express-session")
+const flash = require("connect-flash")
 const ownersRouter= require("./routes/ownersRouter");
 const productsRouter= require("./routes/productsRouter");
 const usersRouter= require("./routes/usersRouter");
@@ -16,13 +18,23 @@ const port = 4000
 app.use(express.json());
 app.use(express.urlencoded({extended:true} ));
 app.use(cookieParser());
+app.use(
+  expressSession({
+    secret: "abcdefghijklmnopqrstuvwxys",
+    resave: false,
+    saveUninitialized: true,
+  })
+)
+
+app.use(flash())
 app.use(express.static(path.join(__dirname, 'public')));
 app.set("view engine","ejs");
 
 app.use("/owner",ownersRouter);
 app.use("/user",usersRouter);
 app.use("/products",productsRouter);
-app.use("/",index);
+app.use("/home",index);//index.js
+
 
 
 console.log("Current NODE_ENV:", process.env.NODE_ENV);
