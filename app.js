@@ -6,7 +6,7 @@ const app = express()
 const expressSession = require("express-session")
 const flash = require("connect-flash")
 const ownersRouter= require("./routes/ownersRouter");
-const productsRouter= require("./routes/productsRouter");
+const ProductsRouter= require("./routes/ProductsRouter");
 const usersRouter= require("./routes/usersRouter");
 const index = require("../SSG_Forge/routes/index");
 require("dotenv").config();
@@ -32,7 +32,7 @@ app.set("view engine","ejs");
 
 app.use("/owner",ownersRouter);
 app.use("/user",usersRouter);
-app.use("/products",productsRouter);
+app.use("/Products",ProductsRouter);
 app.use("/home",index);//index.js
 
 

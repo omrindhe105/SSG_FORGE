@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router();
 const ownerModel = require("../models/ownerSchema");
 const upload = require("../config/multer-config")
+const {createProduct} = require("../controllers/createProduct")
 
 
 
@@ -10,15 +11,14 @@ router.get("/admin", function (req, res) {
   res.render("admin")
 })
 
-router.get("/add-product", function (req, res) {
-  res.render("createProduct")
+router.get("/create-Product", function (req, res) {
+  res.render("create-Product")
 })
 
 
 
-// router.post("/submit-product", upload.single("image"), function(req,res){
-//   res.send(req.file)
-// })
+router.post("/submit-Product", upload.single("image"), createProduct);
+
 
 
 if (process.env.NODE_ENV == "development") { // this route will works only when env will be developement

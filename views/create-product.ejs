@@ -7,28 +7,28 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-6">
-    <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
+    <div class="max-w-lg w-full mx-auto bg-white p-6 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold mb-4 text-center">Create Product</h2>
-        <form action="/products/createProd" method="POST" enctype="multipart/form-data" class="space-y-4">
+        <form action="/owner/submit-Product" method="POST" enctype="multipart/form-data" class="space-y-4">
             <div>
                 <label class="block font-semibold">Product Image:</label>
-                <input type="file" name="image" class="w-full border rounded p-2">
+                <input type="file" name="image" class="w-full border rounded p-2 file:bg-blue-500 file:text-white file:rounded file:px-3 file:py-1">
             </div>
             <div>
                 <label class="block font-semibold">Name:</label>
-                <input type="text" name="name" class="w-full border rounded p-2" required>
+                <input type="text" name="name" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500" required>
             </div>
             <div>
                 <label class="block font-semibold">Price:</label>
-                <input type="number" name="price" class="w-full border rounded p-2" required>
+                <input type="number" name="price" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500" required>
             </div>
             <div>
                 <label class="block font-semibold">Description:</label>
-                <textarea name="description" class="w-full border rounded p-2" required></textarea>
+                <textarea name="description" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500" required></textarea>
             </div>
             <div>
                 <label class="block font-semibold">Category:</label>
-                <select name="category" class="w-full border rounded p-2">
+                <select name="category" class="w-full border rounded p-2 appearance-none focus:ring-2 focus:ring-blue-500">
                     <option value="electronics">Electronics</option>
                     <option value="clothing">Clothing</option>
                     <option value="home">Home</option>
@@ -37,11 +37,11 @@
             </div>
             <div>
                 <label class="block font-semibold">Discount (%):</label>
-                <input type="number" name="discount" class="w-full border rounded p-2">
+                <input type="number" name="discount" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500">
             </div>
             <div>
                 <label class="block font-semibold">Background Color:</label>
-                <input type="color" name="bgColor" class="w-full border rounded p-2">
+                <input type="color" name="bgColor" class="w-full border rounded p-2 focus:ring-2 focus:ring-blue-500">
             </div>
             <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded font-semibold hover:bg-blue-600">Create Product</button>
         </form>
