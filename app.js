@@ -6,7 +6,7 @@ const app = express()
 const expressSession = require("express-session")
 const flash = require("connect-flash")
 const ownersRouter= require("./routes/ownersRouter");
-const ProductsRouter= require("./routes/ProductsRouter");
+const ProductsRouter= require("../SSG_Forge/routes/productsRouter");
 const usersRouter= require("./routes/usersRouter");
 const index = require("../SSG_Forge/routes/index");
 require("dotenv").config();
@@ -28,6 +28,7 @@ app.use(
 
 app.use(flash())
 app.use(express.static(path.join(__dirname, 'public')));
+app.use("/uploads", express.static("uploads"));
 app.set("view engine","ejs");
 
 app.use("/owner",ownersRouter);

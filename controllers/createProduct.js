@@ -1,13 +1,12 @@
 const Product = require("../models/productSchema");
+const flash = require("connect-flash")
 
 module.exports.createProduct = async function (req, res) {
     try {
         const { name, price, description, category, discount, bgColor } = req.body;
-
-        // Ensure multer is configured correctly, and req.file exists
         const imageBuffer = req.file ? req.file.buffer : null;
 
-        // Await product creation
+      
         const product = await Product.create({
             name,
             price,
@@ -18,8 +17,10 @@ module.exports.createProduct = async function (req, res) {
             image: imageBuffer
         });
 
-        // Send JSON response with the created product
-        res.status(201).json({ message: "Product created successfully", product });
+      req.flash("success","product created succesfully")
+
+     res.redirect("/owner/admin")  
+    
 
     } catch (error) {
         console.error("Error creating product:", error);

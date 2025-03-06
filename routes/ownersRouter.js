@@ -8,7 +8,10 @@ const {createProduct} = require("../controllers/createProduct")
 
 
 router.get("/admin", function (req, res) {
-  res.render("admin")
+ 
+  let success = req.flash("success");
+  console.log(success);
+  res.render("admin",{success})
 })
 
 router.get("/create-Product", function (req, res) {

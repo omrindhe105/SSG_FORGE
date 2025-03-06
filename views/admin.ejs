@@ -7,6 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 p-6">
+
+    <% if (success.length > 0) { %>
+        <div class="absolute  right-1/4 translate-x-1/2 translate-y-1/2 p-3 ">
+            <p class="text-green-500 text-lg font-bold"> <%= success[0] %> </p>
+        </div>
+    <% } %>
     <div class="max-w-6xl mx-auto bg-white p-6 rounded-lg shadow-md">
         <h1 class="text-2xl font-bold mb-4 text-blue-600 flex items-center gap-2">
             <span>&#128230;</span> Product Management
